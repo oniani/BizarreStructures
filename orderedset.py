@@ -48,6 +48,12 @@ class OrderedSet:
             return True
         return False
 
+    def __hash__(self):
+        hashval = 0
+        for element in self._elements:
+            hashval ^= hash(element)
+        return hashval
+
     def add(self, element):
         if element not in self._elements:
             self._elements.append(element)
@@ -89,6 +95,7 @@ class OrderedSet:
 def main():
     oset1 = OrderedSet([1,2,3,4,5,6])
     oset2 = OrderedSet([3,4,7,8,9,10,11])
+    print(hash(oset1))
     print(oset1)
     print(oset2)
     print(oset1.union(oset2))

@@ -14,6 +14,9 @@ class ConvolutedArray:
     def __getitem__(self, idx):
         return self._items[idx]
     
+    def __eq__(self, other):
+        return self._items == other._items
+    
     def __contains__(self, item):
         return item in self._items
 
@@ -73,34 +76,23 @@ class ConvolutedArray:
 
 
 def main():
-    print(ConvolutedArray([]))
-    print(ConvolutedArray([1]))
-    print(ConvolutedArray([1,2]))
-    print(ConvolutedArray([1,2,3]))
-    print(ConvolutedArray([1,2,3,4]))
-    print(ConvolutedArray([1,2,3,4,5]))
-    print(ConvolutedArray([1,2,3,4,5,6]))
-    print(ConvolutedArray([1,2,3,4,5,6,7,8,9]))
-    print(ConvolutedArray([1,2,3,4,5,6,7,8,9,10]))
-    print(ConvolutedArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]))
-    print(ConvolutedArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]))
-
-    print(ConvolutedArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]).flatten())
-
-    convarr = ConvolutedArray([1,2,3,4,5,6,7,8,9,10,11,14])
-    print(convarr)
-    print(convarr[2])
-    print(convarr.get_pair(5))
-    print(convarr.get_pair(7))
-    print(convarr.get_pair(6))
-
-    convarr = ConvolutedArray([1,2,3,4,5,6,7,8,9,10,11])
-    print(convarr)
-    print(convarr.get_pair(1))
-    print(convarr.flatten())
-
-    print(1 in convarr)
-    print(123 in convarr)
+    """
+    Testing ConvolutedArray datatype
+    """
+    # Testing Dupeless Stack creation
+    cnvarr = ConvolutedArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    if cnvarr:
+        print("Test 0 passed")
+    else:
+        print("Test 0 failed")
+    
+    # Testing magic method '__len__'
+    if len(cnvarr) == 10:
+        print("Test 1 passed")
+    else:
+        print("Test 1 failed")
+    
+    # Testing magic method '__repr__'
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ https://www.python.org/dev/peps/pep-0416/
 """
 
 
-class FrozenDictionary():
+class FrozenDictionary:
     def __init__(self, *args, **kwargs):
         self._dict = dict(*args, **kwargs)
 
@@ -42,6 +42,9 @@ class FrozenDictionary():
 
 
 def main():
+    """
+    Testing FrozenDictionary datatype
+    """
     # Testing Frozen Dictionary creation
     fdict = FrozenDictionary({'a': 0, 'b': 1, 'c': 2})
     if fdict:
@@ -72,11 +75,12 @@ def main():
     res = True
     for key in fdict:
         if fdict[key] != num:
-            print("Test 4 failed")
             res = False
         num += 1
     if res:
         print("Test 4 passed")
+    else:
+        print("Test 4 failed")
 
     # Testing magic method '__contains__'
     if 'c' in fdict:

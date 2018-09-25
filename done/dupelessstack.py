@@ -80,7 +80,7 @@ class DupelessStack:
 
 def main():
     """
-    Testing the Dupeless Stack datatype
+    Testing DupelessStack datatype
     """
     # Testing Dupeless Stack creation
     dls = DupelessStack([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
