@@ -4,19 +4,20 @@ It is rather interesting than useful data structure.
 P.S. It does have some limited uses :)
 """
 
+
 class ConvolutedArray:
     def __init__(self, items):
         self._items = items
-    
+
     def __len__(self):
         return len(self._items)
-    
+
     def __getitem__(self, idx):
         return self._items[idx]
-    
+
     def __eq__(self, other):
         return self._items == other._items
-    
+
     def __contains__(self, item):
         return item in self._items
 
@@ -28,7 +29,7 @@ class ConvolutedArray:
 
         elif len(self._items) == 1:
             return out + str(self._items[0]) + "])"
-        
+
         elif len(self._items) == 2:
             return out + str(self._items[0]) + ", " + str(self._items[1]) + "])"
 
@@ -85,14 +86,43 @@ def main():
         print("Test 0 passed")
     else:
         print("Test 0 failed")
-    
+
     # Testing magic method '__len__'
     if len(cnvarr) == 10:
         print("Test 1 passed")
     else:
         print("Test 1 failed")
-    
+
     # Testing magic method '__repr__'
+    if str(cnvarr) == "ConvolutedArray([0, [1, [2, [3, [4, 5], 6], 7], 8], 9])":
+        print("Test 2 passed")
+    else:
+        print("Test 2 failed")
+
+    # Testing method 'get_pair'
+    if cnvarr.get_pair(1) == [1, 8]:
+        print("Test 3 passed")
+    else:
+        print("Test 3 failed")
+
+    # Testing method 'flatten'
+    if cnvarr.flatten() == "ConvolutedArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])":
+        print("Test 4 passed")
+    else:
+        print("Test 4 failed")
+
+    # Testing method 'clear'
+    cnvarr.clear()
+    if cnvarr == ConvolutedArray([]):
+        print("Test 5 passed")
+    else:
+        print("Test 5 failed")
+
+    # Testing method 'is_empty'
+    if cnvarr.is_empty():
+        print("Test 6 passed")
+    else:
+        print("Test 6 failed")
 
 
 if __name__ == "__main__":
