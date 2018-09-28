@@ -58,6 +58,11 @@ class ConvolutedArray:
         return out
 
     def get_pair(self, idx):
+        """
+        Get the pairs out of the Convoluted Array.
+        For instance, if the cnvarr = ConvolutedArray(1, 2, 3),
+        cnvarr.get_pair(0) is [1, 3] and cnvarr.get_pair(1) is [2].
+        """
         if len(self._items) % 2 == 0:
             return [self._items[idx], self._items[-1-idx]]
         else:
@@ -67,12 +72,23 @@ class ConvolutedArray:
                 return [self._items[idx], self._items[-1-idx]]
 
     def flatten(self):
-        return f"ConvolutedArray({self._items})"
+        """
+        Flatten the Convoluted Array.
+        For instance, if the cnvarr = ConvolutedArray(1, 2, 3),
+        cnvarr.flatten() = [1, 2, 3].
+        """
+        return "ConvolutedArray({})".format(self._items)
 
     def clear(self):
+        """
+        Clear the Convoluted Array.
+        """
         self._items = []
 
     def is_empty(self):
+        """
+        Check if the Convoluted Array is empty.
+        """
         return self._items == []
 
 
