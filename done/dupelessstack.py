@@ -34,6 +34,12 @@ class DupelessStack:
 
         return out
 
+    def __hash__(self):
+        hashval = 0
+        for item in self._items:
+            hashval ^= hash(item)
+        return hashval
+
     def size(self):
         """
         Return the size of the Dupeless Stack
@@ -109,45 +115,51 @@ def main():
     else:
         print("Test 3 failed")
 
-    # Testing method 'size'
-    if dls.size() == 10:
+    # Testing magic method '__hash__'
+    if {DupelessStack([0, 1, 2]): 0}:
         print("Test 4 passed")
     else:
         print("Test 4 failed")
 
-    # Testing method 'top'
-    if dls.top() == 9:
+    # Testing method 'size'
+    if dls.size() == 10:
         print("Test 5 passed")
     else:
         print("Test 5 failed")
+
+    # Testing method 'top'
+    if dls.top() == 9:
+        print("Test 6 passed")
+    else:
+        print("Test 6 failed")
 
     # Testing method 'push'
     dls.push(10)
 
     if dls == DupelessStack([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]):
-        print("Test 6 passed")
+        print("Test 7 passed")
     else:
-        print("Test 6 failed")
+        print("Test 7 failed")
 
     # Testing method 'pop'
     if dls.pop() == 10:
         if dls == DupelessStack([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]):
-            print("Test 7 passed")
+            print("Test 8 passed")
     else:
-        print("Test 7 failed")
+        print("Test 8 failed")
 
     # Testing method 'clear'
     dls.clear()
     if dls == DupelessStack([]):
-        print("Test 8 passed")
-    else:
-        print("Test 8 failed")
-
-    # Testing method 'is_empty'
-    if dls.is_empty() is True:
         print("Test 9 passed")
     else:
         print("Test 9 failed")
+
+    # Testing method 'is_empty'
+    if dls.is_empty() is True:
+        print("Test 10 passed")
+    else:
+        print("Test 10 failed")
 
 
 if __name__ == "__main__":
