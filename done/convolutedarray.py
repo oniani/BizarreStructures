@@ -31,30 +31,30 @@ class ConvolutedArray:
             return out + str(self._items[0]) + "])"
 
         elif len(self._items) == 2:
-            return out + str(self._items[0]) + ", " + str(self._items[1]) + "])"
+            return "{}{}, {}])".format(out, self._items[0], self._items[1])
 
         elif len(self._items) % 2 == 0:
             for i in range(len(self._items)):
                 if i < len(self._items) // 2 - 1:
-                    out += str(self._items[i]) + ", ["
+                    out += "{}, [".format(self._items[i])
                 elif i == len(self._items) // 2 - 1:
-                    out += str(self._items[i]) + ", "
+                    out += "{}, ".format(self._items[i])
                 elif i == len(self._items) // 2:
-                    out += str(self._items[i]) + "], "
+                    out += "{}], ".format(self._items[i])
                 elif i < len(self._items) - 1:
-                    out += str(self._items[i]) + "], "
+                    out += "{}], ".format(self._items[i])
                 else:
-                    out += str(self._items[i]) + "])"
+                    out += "{}])".format(self._items[i])
         else:
             for i in range(len(self._items)):
                 if i < len(self._items) // 2:
-                    out += str(self._items[i]) + ", ["
+                    out += "{}, [".format(self._items[i])
                 elif i == len(self._items) // 2:
-                    out += str(self._items[i]) + "], "
+                    out += "{}], ".format(self._items[i])
                 elif i < len(self._items) - 1:
-                    out += str(self._items[i]) + "], "
+                    out += "{}], ".format(self._items[i])
                 else:
-                    out += str(self._items[i]) + "])"
+                    out += "{}])".format(self._items[i])
         return out
 
     def get_pair(self, idx):

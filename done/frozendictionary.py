@@ -31,7 +31,7 @@ class FrozenDictionary:
         return key in self._dict
 
     def __repr__(self):
-        return "FrozenDictionary(" + str(self._dict) + ")"
+        return "FrozenDictionary({})".format(self._dict)
 
     def __hash__(self):
         hashval = 0

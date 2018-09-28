@@ -25,12 +25,12 @@ class DupelessStack:
         out = "DupelessStack(["
 
         if self.is_empty():
-            return out + "])"
+            return "{}])".format(out)
 
         for item in self._items:
             if item != self._items[-1]:
-                out += str(item) + ', '
-        out += str(item) + "])"
+                out += "{}, ".format(item)
+        out += "{}])".format(item)
 
         return out
 
