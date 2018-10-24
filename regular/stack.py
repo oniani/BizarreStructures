@@ -35,11 +35,17 @@ class Stack:
         """
         return len(self._data)
 
-    def push(self, data) -> None:
+    def push(self, data: object) -> None:
         """
         Pushes the value to the stack.
         """
         self._data.append(data)
+
+    def top(self, data: object) -> None:
+        """
+        Returns the top value of the stack.
+        """
+        return self._data[-1]
 
     def pop(self) -> object:
         """
@@ -103,24 +109,30 @@ def main():
     else:
         print("Test 4 failed")
 
-    # Test the 'pop' method
-    if stack.pop() == 10 and stack.size() == 10:
+    # Test the 'top' method
+    if stack.top() == 10:
         print("Test 5 passed")
     else:
         print("Test 5 failed")
 
-    # Test the 'clear' method
-    stack.clear()
-    if stack == Stack():
+    # Test the 'pop' method
+    if stack.pop() == 10 and stack.size() == 10:
         print("Test 6 passed")
     else:
         print("Test 6 failed")
 
-    # Test the 'is_empty' method
-    if stack.is_empty() and not other_stack.is_empty():
+    # Test the 'clear' method
+    stack.clear()
+    if stack == Stack():
         print("Test 7 passed")
     else:
         print("Test 7 failed")
+
+    # Test the 'is_empty' method
+    if stack.is_empty() and not other_stack.is_empty():
+        print("Test 8 passed")
+    else:
+        print("Test 9 failed")
 
 
 if __name__ == "__main__":

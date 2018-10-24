@@ -1,10 +1,10 @@
 """
 This module implements the Linked List class
-along with its supporting Node class.
+along with its supporting ListNode class.
 """
 
 
-class Node:
+class ListNode:
     """
     The class to represent the Node of the linked list.
     """
@@ -18,7 +18,7 @@ class LinkedList:
     The LinkedList class.
     """
     def __init__(self) -> None:
-        self._head = Node()
+        self._head = ListNode()
         self._size = 0
 
     def __repr__(self) -> object:
@@ -64,7 +64,7 @@ class LinkedList:
         while current._next is not None:
             current = current._next
 
-        current._next = Node(data)
+        current._next = ListNode(data)
         self._size += 1
 
     def insert(self, data: object, index: int) -> None:
@@ -86,7 +86,7 @@ class LinkedList:
             tracker += 1
 
         temp = current._next
-        current._next = Node(data)
+        current._next = ListNode(data)
         current._next._next = temp
 
         self._size += 1
