@@ -12,6 +12,9 @@ class ListNode:
         self._data = data
         self._next = None
 
+    def __repr__(self) -> object:
+        return "ListNode([{}, {}])".format(self._data, self._next)
+
 
 class LinkedList:
     """
@@ -22,15 +25,18 @@ class LinkedList:
         self._size = 0
 
     def __repr__(self) -> object:
+        if self._size == 0:
+            return "LinkedList([])"
+
         current = self._head
         result = "LinkedList(["
 
         while current._next._next is not None:
             current = current._next
-            result += str(current._data) + ", "
+            result += repr(current._data) + ", "
         current = current._next
 
-        return result + str(current._data) + ")]"
+        return result + repr(current._data) + ")]"
 
     def __eq__(self, other) -> bool:
         if type(self) is not type(other):
@@ -125,29 +131,44 @@ class LinkedList:
             tracker += 1
 
         return False
+    
+    def empty(self):
+        """
+        Empty the linked list.
+        """
+        self._head = ListNode(None)
+        self._size = 0
+
+    def is_empty(self):
+        """
+        Check the emptiness of the linked list.
+        """
+        return self._head._data is None and self._size == 0
 
 
 def main():
-    linked_list = LinkedList()
-    for i in range(10):
-        linked_list.append(i)
-
     # Test the 'LinkedList' datatype creation
+    linked_list = LinkedList()
+
     if linked_list:
         print("Test 0 passed")
     else:
         print("Test 0 failed")
 
     # Test the '__repr__' magic method
+    for i in range(10):
+        linked_list.append(i)
+
     if repr(linked_list) == "LinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9)]":
         print("Test 1 passed")
     else:
         print("Test 1 failed")
 
+    # Test the '__eq__' magic method
     other_linked_list = LinkedList()
     for i in range(10):
         other_linked_list.append(i)
-    # Test the '__eq__' magic method
+
     if linked_list == other_linked_list:
         print("Test 2 passed")
     else:
@@ -159,17 +180,17 @@ def main():
     else:
         print("Test 3 failed")
 
+    # Test the 'insert' method
     linked_list.insert("Item", 5)
 
-    # Test the 'insert' method
     if repr(linked_list) == "LinkedList([0, 1, 2, 3, Item, 4, 5, 6, 7, 8, 9)]":
         print("Test 4 passed")
     else:
         print("Test 4 failed")
 
+    # Test the 'remove' method
     linked_list.remove(5)
 
-    # Test the 'remove' method
     if repr(linked_list) == "LinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9)]":
         print("Test 5 passed")
     else:
@@ -180,6 +201,21 @@ def main():
         print("Test 6 passed")
     else:
         print("Test 6 failed")
+    
+    # Test the 'empty' method
+    linked_list.empty()
+
+    if linked_list == LinkedList():
+        print("Test 7 passed")
+    else:
+        print(linked_list)
+        print("Test 7 failed")
+    
+    # Test the 'is_empty' method
+    if linked_list.is_empty() is True:
+        print("Test 8 passed")
+    else:
+        print("Test 8 failed")
 
 
 if __name__ == "__main__":
