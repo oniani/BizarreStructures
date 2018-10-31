@@ -41,7 +41,7 @@ class LinkedList:
     def __eq__(self, other) -> bool:
         if type(self) is not type(other):
             return False
-        if self.size() != other.size():
+        if len(self) != len(other):
             return False
 
         current = self._head
@@ -55,7 +55,7 @@ class LinkedList:
 
         return True
 
-    def size(self) -> int:
+    def __len__(self) -> int:
         """
         Returns the size of the linked list.
         """
@@ -77,25 +77,19 @@ class LinkedList:
         """
         Inserts the element at the given index.
         """
-        if index < 0 or index > self._size - 1:
-            raise IndexError("Index out of bounds!")
-
-        if index == self._size - 1:
+        if index > self._size - 1:
             self.append(data)
-            return
+        else:
+            current = self._head
 
-        current = self._head
-        tracker = 0
+            for _ in range(index):
+                current = current._next
 
-        while tracker < index - 1:
-            current = current._next
-            tracker += 1
+            new_node = ListNode(data)
+            new_node._next = current._next
+            current._next = new_node
 
-        temp = current._next
-        current._next = ListNode(data)
-        current._next._next = temp
-
-        self._size += 1
+            self._size += 1
 
     def remove(self, index: int) -> None:
         """
@@ -107,7 +101,7 @@ class LinkedList:
         current = self._head
         tracker = 0
 
-        while tracker < index - 1:
+        while tracker < index:
             current = current._next
             tracker += 1
 
@@ -131,26 +125,26 @@ class LinkedList:
             tracker += 1
 
         return False
-    
+
     def empty(self):
         """
         Empty the linked list.
         """
-        self._head = ListNode(None)
+        self._head._next = None
         self._size = 0
 
     def is_empty(self):
         """
         Check the emptiness of the linked list.
         """
-        return self._head._data is None and self._size == 0
+        return self._head._next is None and self._size == 0
 
 
 def main():
     # Test the 'LinkedList' datatype creation
     linked_list = LinkedList()
 
-    if linked_list:
+    if not linked_list:
         print("Test 0 passed")
     else:
         print("Test 0 failed")
@@ -175,15 +169,15 @@ def main():
         print("Test 2 failed")
 
     # Test the 'size' method
-    if linked_list.size() == 10:
+    if len(linked_list) == 10:
         print("Test 3 passed")
     else:
         print("Test 3 failed")
 
     # Test the 'insert' method
-    linked_list.insert("Item", 5)
+    linked_list.insert("X", 5)
 
-    if repr(linked_list) == "LinkedList([0, 1, 2, 3, Item, 4, 5, 6, 7, 8, 9)]":
+    if repr(linked_list) == "LinkedList([0, 1, 2, 3, 4, 'X', 5, 6, 7, 8, 9)]":
         print("Test 4 passed")
     else:
         print("Test 4 failed")
@@ -201,7 +195,7 @@ def main():
         print("Test 6 passed")
     else:
         print("Test 6 failed")
-    
+
     # Test the 'empty' method
     linked_list.empty()
 
@@ -210,7 +204,7 @@ def main():
     else:
         print(linked_list)
         print("Test 7 failed")
-    
+
     # Test the 'is_empty' method
     if linked_list.is_empty() is True:
         print("Test 8 passed")
