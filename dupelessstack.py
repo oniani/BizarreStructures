@@ -6,9 +6,7 @@ The order of the items of the stack is maintained.
 
 
 class DupelessStack:
-    """
-    Dupeless Stack class
-    """
+    """Dupeless Stack class"""
     def __init__(self, items=[]):
         self._items = []
         for item in items:
@@ -41,30 +39,22 @@ class DupelessStack:
         return hashval
 
     def size(self):
-        """
-        Return the size of the Dupeless Stack
-        """
+        """Return the size of the Dupeless Stack"""
         return len(self._items)
 
     def top(self):
-        """
-        Return the top item of the Dupeless Stack
-        """
+        """Return the top item of the Dupeless Stack"""
         if self.is_empty():
             raise RuntimeError("Attempt to get a top of the empty stack!")
         return self._items[-1]
 
     def push(self, item):
-        """
-        Push an item to the Dupeless Stack
-        """
+        """Push an item to the Dupeless Stack"""
         if item not in self._items:
             self._items.append(item)
 
     def pop(self):
-        """
-        Pop the last item from the Dupeless Stack
-        """
+        """Pop the last item from the Dupeless Stack"""
         if self.is_empty():
             raise RuntimeError("Attempt to pop the empty stack!")
         item = self.top()
@@ -72,23 +62,17 @@ class DupelessStack:
         return item
 
     def clear(self):
-        """
-        Clear the Dupeless Stack
-        """
+        """Clear the Dupeless Stack"""
         self._items = []
 
     def is_empty(self):
-        """
-        Check the emptiness of the Dupeless Stack
-        """
+        """Check the emptiness of the Dupeless Stack"""
         return self._items == []
 
 
 def main():
-    """
-    Testing DupelessStack datatype
-    """
-    # Testing Dupeless Stack creation
+    """Testing DupelessStack datatype"""
+    # Testing DupelessStack creation
     dls = DupelessStack([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     if dls:
         print("Test 0 passed")

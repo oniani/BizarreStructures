@@ -42,9 +42,7 @@ class FrozenDictionary:
 
 
 def main():
-    """
-    Testing FrozenDictionary datatype
-    """
+    """Testing FrozenDictionary datatype"""
     # Testing Frozen Dictionary creation
     fdict = FrozenDictionary({'a': 0, 'b': 1, 'c': 2})
     if fdict:

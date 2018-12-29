@@ -93,9 +93,7 @@ class OrderedSet:
 
 
 def main():
-    """
-    Testing OrderedSet datatype
-    """
+    """Testing OrderedSet datatype"""
     # Testing Ordered Set creation
     oset = OrderedSet({0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
     if oset:

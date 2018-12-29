@@ -30,9 +30,7 @@ class OrderedFrozenSet(frozenset):
 
 
 def main():
-    """
-    Testing OrderedFrozenSet datatype
-    """
+    """Testing OrderedFrozenSet datatype"""
     # Testing Frozen Dictionary creation
     ofset = OrderedFrozenSet({1, 2, 3})
     if ofset:
