@@ -4,8 +4,8 @@ Some of the structures are created for a mere interest while others can
 be very useful under particular circumstances. All the data structures
 are implemented in the **Python** programming language.
 
-# Dependencies
+## Dependencies
 **None** but **Python**.
 
-# License
-[MIT](https://github.com/oniani/BizarreStructures/blob/master/LICENSE)
+## License
+[GNU General Public License v3.0](LICENSE)
