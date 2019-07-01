@@ -12,6 +12,7 @@ class ElasticList(list):
     NOTE: We define sparsity as the frequency of None values.
         If frequency >= 50% then sparse else not.
     """
+
     def __init__(self, items: list = []) -> None:
         self._items = items
 
@@ -23,7 +24,9 @@ class ElasticList(list):
 
         NOTE: This makes the list less sparse.
         """
-        stretcher = lambda x: [x] + [None for i in range(len(self._items) * degree)]
+        stretcher = lambda x: [x] + [
+            None for i in range(len(self._items) * degree)
+        ]
         self._items = sum(list(map(stretcher, self._items)), [])
 
     def shrink(self, filter: str = "even") -> None:
@@ -34,9 +37,13 @@ class ElasticList(list):
         NOTE: This makes the list more sparse.
         """
         if filter == "even":
-            self._items = [self._items[i] for i in range(len(self._items)) if i % 2 == 0]
+            self._items = [
+                self._items[i] for i in range(len(self._items)) if i % 2 == 0
+            ]
         else:
-            self._items = [self._items[i] for i in range(len(self._items)) if i % 2 == 1]
+            self._items = [
+                self._items[i] for i in range(len(self._items)) if i % 2 == 1
+            ]
 
 
 def main():
@@ -57,18 +64,40 @@ def main():
     # Testing method 'stretch'
     elastic_list.stretch(3)
 
-    if elastic_list == ElasticList([1,
-                                    None, None, None,
-                                    None, None, None,
-                                    None, None, None,
-                                    2,
-                                    None, None, None,
-                                    None, None, None,
-                                    None, None, None,
-                                    3,
-                                    None, None, None,
-                                    None, None, None,
-                                    None, None, None]):
+    if elastic_list == ElasticList(
+        [
+            1,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            2,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            3,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+        ]
+    ):
         print("Test 2 passed")
     else:
         print("Test 2 failed")
@@ -76,14 +105,25 @@ def main():
     # Testing method 'shrink'
     elastic_list.shrink()
 
-    if elastic_list == ElasticList([1,
-                                    None, None,
-                                    None, None,
-                                    2,
-                                    None, None,
-                                    None, None,
-                                    3, None, None,
-                                    None, None]):
+    if elastic_list == ElasticList(
+        [
+            1,
+            None,
+            None,
+            None,
+            None,
+            2,
+            None,
+            None,
+            None,
+            None,
+            3,
+            None,
+            None,
+            None,
+            None,
+        ]
+    ):
         print("Test 3 passed")
     else:
         print("Test 3 failed")

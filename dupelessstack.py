@@ -7,6 +7,7 @@ The order of the items of the stack is maintained.
 
 class DupelessStack:
     """Dupeless Stack class"""
+
     def __init__(self, items=[]):
         self._items = []
         for item in items:

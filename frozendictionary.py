@@ -44,14 +44,14 @@ class FrozenDictionary:
 def main():
     """Testing FrozenDictionary datatype"""
     # Testing Frozen Dictionary creation
-    fdict = FrozenDictionary({'a': 0, 'b': 1, 'c': 2})
+    fdict = FrozenDictionary({"a": 0, "b": 1, "c": 2})
     if fdict:
         print("Test 0 passed")
     else:
         print("Test 0 failed")
 
     # Testing magic method '__getitem__'
-    if fdict['c'] == 2:
+    if fdict["c"] == 2:
         print("Test 1 passed")
     else:
         print("Test 1 failed")
@@ -63,7 +63,7 @@ def main():
         print("Test 2 failed")
 
     # Testing magic method '__eq__'
-    if fdict == FrozenDictionary({'a': 0, 'b': 1, 'c': 2}):
+    if fdict == FrozenDictionary({"a": 0, "b": 1, "c": 2}):
         print("Test 3 passed")
     else:
         print("Test 3 failed")
@@ -81,7 +81,7 @@ def main():
         print("Test 4 failed")
 
     # Testing magic method '__contains__'
-    if 'c' in fdict:
+    if "c" in fdict:
         print("Test 5 passed")
     else:
         print("Test 5 failed")

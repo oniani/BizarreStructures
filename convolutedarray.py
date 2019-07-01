@@ -66,12 +66,12 @@ class ConvolutedArray:
             cnvarr.get_pair(0) is [1, 3] and cnvarr.get_pair(1) is [2].
         """
         if len(self._items) % 2 == 0:
-            return [self._items[idx], self._items[-1-idx]]
+            return [self._items[idx], self._items[-1 - idx]]
         else:
             if idx == len(self._items) // 2:
                 return [idx]
             else:
-                return [self._items[idx], self._items[-1-idx]]
+                return [self._items[idx], self._items[-1 - idx]]
 
     def flatten(self):
         """Flatten the Convoluted Array.
@@ -106,7 +106,10 @@ def main():
         print("Test 1 failed")
 
     # Testing magic method '__repr__'
-    if str(cnvarr) == "ConvolutedArray([0, [1, [2, [3, [4, 5], 6], 7], 8], 9])":
+    if (
+        str(cnvarr)
+        == "ConvolutedArray([0, [1, [2, [3, [4, 5], 6], 7], 8], 9])"
+    ):
         print("Test 2 passed")
     else:
         print("Test 2 failed")
