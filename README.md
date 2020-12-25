@@ -1,5 +1,5 @@
 # Structures
-This repository includes implementations of various "bizarre" datatypes.
+This repository includes implementations of various "bizarre" data types.
 Some of the structures are created for a mere interest while others can
 be very useful under particular circumstances. All the data structures
 are implemented in the **Python** programming language.
@@ -8,4 +8,4 @@ are implemented in the **Python** programming language.
 **None** but **Python**.
 
 ## License
-[GNU General Public License v3.0](LICENSE)
+[MIT License](LICENSE)
